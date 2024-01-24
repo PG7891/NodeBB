@@ -347,14 +347,14 @@ describe('Categories', () => {
         });
 
         it('checks if data', (done) => {
-            socketCategories.loadMoreSubCategories({}, { cid: categoryObj.cid, start: "10" }, (err, isModerator) => {
+            socketCategories.loadMoreSubCategories({}, { cid: categoryObj.cid, start: '10' }, (err, isModerator) => {
                 assert.equal(err.message, '[[error:no-privileges]]');
                 done();
             });
         });
 
         it('checks if data', (done) => {
-            socketCategories.loadMoreSubCategories({ uid: posterUid}, { cid: categoryObj.cid, start: "10" }, (err, isModerator) => {
+            socketCategories.loadMoreSubCategories({ uid: posterUid }, { cid: categoryObj.cid, start: '10' }, (err, isModerator) => {
                 assert.ifError(err);
                 assert(isModerator);
                 done();
