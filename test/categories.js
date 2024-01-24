@@ -339,6 +339,13 @@ describe('Categories', () => {
             });
         });
 
+        it('checks if data', (done) => {
+            socketCategories.loadMoreSubCategories({ uid: posterUid }, null, (err, isModerator) => {
+                assert.equal(err.message, '[[error:invalid-data]]');
+                done();
+            });
+        });
+
         it('should get category data', async () => {
             const data = await apiCategories.get({ uid: posterUid }, { cid: categoryObj.cid });
             assert.equal(categoryObj.cid, data.cid);
